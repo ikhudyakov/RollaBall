@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RollABall
 {
@@ -22,6 +20,5 @@ namespace RollABall
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
             _rigidbody.AddForce(movement * Speed);
         }
-
     }
 }
