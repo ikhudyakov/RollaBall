@@ -1,21 +1,24 @@
-﻿using System.Collections;
+﻿using RollABall;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RollABall
+public class Bonus :InteractiveObject, IColor, IMotion
 {
-    public class Bonus : MonoBehaviour
+    private void Update()
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        Motion();
+    }
 
-        }
+    public void Motion()
+    {
+        transform.localScale = new Vector3(Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f, 
+                                            Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f, 
+                                            Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f);
+    }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+    public void SetColor(Color color)
+    {
+        GetComponent<Renderer>().material.color = color;
     }
 }
