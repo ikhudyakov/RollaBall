@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using static UnityEngine.Debug;
+﻿using static UnityEngine.Debug;
 
-public sealed class BonusDisplay : MonoBehaviour
+public sealed class BonusDisplay
 {
     public void Display(int value)
     {

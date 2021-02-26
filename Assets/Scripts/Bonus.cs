@@ -1,10 +1,16 @@
 ﻿using RollABall;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Bonus :InteractiveObject, IColor, IMotion
+public class Bonus : InteractiveObject, IColor, IMotion
 {
+    public string InfoBonus { get; set; }
+
+    private void Start()
+    {
+        InfoBonus = nameof(Bonus);
+    }
+
     private void Update()
     {
         Motion();
