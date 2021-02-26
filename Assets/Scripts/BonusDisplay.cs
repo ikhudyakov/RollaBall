@@ -1,9 +1,12 @@
 ﻿using static UnityEngine.Debug;
 
-public sealed class BonusDisplay
+namespace RollABall
 {
-    public void Display(int value)
+    public sealed class BonusDisplay
     {
-        Log($"Получено {value} очков");
+        public void Display(int value)
+        {
+            Log($"Получено {value} очков");
+        }
     }
 }

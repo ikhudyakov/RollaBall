@@ -1,30 +1,31 @@
-﻿using RollABall;
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Bonus : InteractiveObject, IColor, IMotion
+namespace RollABall
 {
-    public string InfoBonus { get; set; }
-
-    private void Start()
+    public class Bonus : InteractiveObject, IColor, IMotion
     {
-        InfoBonus = nameof(Bonus);
-    }
+        public string InfoBonus { get; set; }
 
-    private void Update()
-    {
-        Motion();
-    }
+        private void Start()
+        {
+            InfoBonus = nameof(Bonus);
+        }
 
-    public void Motion()
-    {
-        transform.localScale = new Vector3(Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f, 
-                                            Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f, 
-                                            Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f);
-    }
+        private void Update()
+        {
+            Motion();
+        }
 
-    public void SetColor(Color color)
-    {
-        GetComponent<Renderer>().material.color = color;
+        public void Motion()
+        {
+            transform.localScale = new Vector3(Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f,
+                                                Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f,
+                                                Mathf.PingPong(Time.time, 1f - 0.5f) + 0.5f);
+        }
+
+        public void SetColor(Color color)
+        {
+            GetComponent<Renderer>().material.color = color;
+        }
     }
 }

@@ -7,7 +7,6 @@ namespace RollABall
         public Player Player;
         private Vector3 _offset;
         private float _shakeDuration;
-        private Vector3 originalPos;
         private float shakeAmount = 0.7f;
         private float decreaseFactor = 1.0f;
 
@@ -16,11 +15,6 @@ namespace RollABall
         private void Start()
         {
             _offset = transform.position - Player.transform.position;
-        }
-
-        private void OnEnable()
-        {
-            originalPos = transform.localPosition;
         }
 
         private void LateUpdate()

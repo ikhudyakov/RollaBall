@@ -4,7 +4,7 @@ namespace RollABall
 {
     public class GoodBonus : Bonus
     {
-        private GameObject _player;
+        private PlayerBall _player;
         private int _bonusPoints = 5;
         private BonusDisplay _bonusDisplay;
         private BonusEvent bonusEvent;
@@ -12,7 +12,7 @@ namespace RollABall
         private void Start()
         {
             _bonusDisplay = new BonusDisplay();
-            _player = GameObject.FindGameObjectWithTag("Player");
+            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBall>();
             SetColor(new Color(0f, 255f, 0f));
             bonusEvent = new BonusEvent();
             bonusEvent.Notify += BonusEvent_Notify;
@@ -21,7 +21,7 @@ namespace RollABall
         protected override void Interaction()
         {
             base.Interaction();
-            _player.GetComponent<PlayerBall>().Score += _bonusPoints;
+            _player.Score += _bonusPoints;
             _bonusDisplay.Display(_bonusPoints);
             bonusEvent.SendMessage();
         }

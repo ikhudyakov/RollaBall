@@ -1,10 +1,13 @@
-﻿internal sealed class BonusEvent
+﻿namespace RollABall
 {
-    public delegate void BonusHandler(string message);
-    public event BonusHandler Notify;
-
-    public void SendMessage()
+    internal sealed class BonusEvent
     {
-        Notify($"Получен бонус");
+        public delegate void BonusHandler(string message);
+        public event BonusHandler Notify;
+
+        public void SendMessage()
+        {
+            Notify($"Получен бонус");
+        }
     }
 }

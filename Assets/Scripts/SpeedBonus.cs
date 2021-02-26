@@ -4,13 +4,13 @@ namespace RollABall
 {
     public class SpeedBonus : Bonus
     {
-        private GameObject _player;
+        private PlayerBall _player;
         private float _bonusSpeedPoint = 5f;
         private BonusEvent bonusEvent;
 
         private void Start()
         {
-            _player = GameObject.FindGameObjectWithTag("Player");
+            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBall>();
             SetColor(new Color(0f, 0, 255f));
             bonusEvent = new BonusEvent();
             bonusEvent.Notify += BonusEvent_Notify;
@@ -20,7 +20,7 @@ namespace RollABall
         {
             base.Interaction();
             bonusEvent.SendMessage();
-            _player.GetComponent<PlayerBall>().Speed += _bonusSpeedPoint;
+            _player.Speed += _bonusSpeedPoint;
         }
 
         private void BonusEvent_Notify(string message)

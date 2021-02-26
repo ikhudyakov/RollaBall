@@ -4,12 +4,12 @@ namespace RollABall
 {
     public class BadBonus : Bonus
     {
-        private GameObject _player;
+        private PlayerBall _player;
         private BonusEvent bonusEvent;
 
         private void Start()
         {
-            _player = GameObject.FindGameObjectWithTag("Player");
+            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBall>();
             SetColor(new Color(0f, 0f, 0f));
             bonusEvent = new BonusEvent();
             bonusEvent.Notify += BonusEvent_Notify;
@@ -18,7 +18,7 @@ namespace RollABall
         protected override void Interaction()
         {
             base.Interaction();
-            Destroy(_player);
+            Destroy(_player.gameObject);
             bonusEvent.SendMessage();
         }
 
