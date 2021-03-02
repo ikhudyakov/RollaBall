@@ -2,7 +2,7 @@
 
 namespace RollABall
 {
-    public class Bonus : InteractiveObject, IColor, IMotion
+    public class Bonus : InteractiveObject, IColor, IMotion, IBonus
     {
         public string InfoBonus { get; set; }
 
@@ -11,8 +11,9 @@ namespace RollABall
             InfoBonus = nameof(Bonus);
         }
 
-        private void Update()
+        public override void Execute()
         {
+            if (!IsInteractable) { return; }
             Motion();
         }
 

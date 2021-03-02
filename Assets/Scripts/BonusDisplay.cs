@@ -1,12 +1,21 @@
-﻿using static UnityEngine.Debug;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace RollABall
 {
     public sealed class BonusDisplay
     {
-        public void Display(int value)
+        private Text _bonus;
+        public BonusDisplay(GameObject bonus)
         {
-            Log($"Получено {value} очков");
+            _bonus = bonus.GetComponentInChildren<Text>();
+            _bonus.text = String.Empty;
+        }
+
+        public void Display(int point)
+        {
+            _bonus.text = $"Вы набрали {point} очков";
         }
     }
 }

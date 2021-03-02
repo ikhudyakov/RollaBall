@@ -2,9 +2,10 @@
 
 namespace RollABall
 {
-    public sealed class CameraController : MonoBehaviour
+    public sealed class CameraController : IExecute
     {
-        public Player Player;
+        private Transform PlayerTransform;
+        private Transform CameraTransform;
         private Vector3 _offset;
         private float _shakeDuration;
         private float shakeAmount = 0.7f;
@@ -12,29 +13,36 @@ namespace RollABall
 
         public float ShakeDuration { get => _shakeDuration; set => _shakeDuration = value; }
 
-        private void Start()
+        public CameraController(Transform player, Transform CameraTransform)
         {
-            _offset = transform.position - Player.transform.position;
+            this.CameraTransform = CameraTransform;
+            PlayerTransform = player;
+            _offset = CameraTransform.position - PlayerTransform.position;
         }
 
-        private void LateUpdate()
+        public void Shake()
         {
-            Shake();
-        }
-
-        private void Shake()
-        {
-            transform.position = Player.transform.position + _offset;
+            CameraTransform.position = PlayerTransform.position + _offset;
             if (ShakeDuration > 0)
             {
-                transform.localPosition = transform.position + Random.insideUnitSphere * shakeAmount;
+                CameraTransform.localPosition = CameraTransform.position + UnityEngine.Random.insideUnitSphere * shakeAmount;
                 ShakeDuration -= Time.deltaTime * decreaseFactor;
             }
             else
             {
                 ShakeDuration = 0f;
-                transform.position = Player.transform.position + _offset;
+                CameraTransform.position = PlayerTransform.position + _offset;
             }
+        }
+
+        public void SetShakeDuration()
+        {
+            ShakeDuration = 0.5f;
+        }
+
+        public void Execute()
+        {
+            Shake();
         }
     }
 }
