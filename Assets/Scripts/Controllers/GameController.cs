@@ -9,17 +9,23 @@ namespace RollABall
         private Data data;
         private PlayerBall player;
         private CameraController cameraController;
+        private MiniMapController miniMapController;
+        private InputController inputController;
         private BonusDisplay _bonusDisplay;
         private GameOverDisplay _gameOverDisplay;
+        private InteractiveObject[] _bonuses;
 
         private void Awake()
         {
             _interactiveObject = new ListExecuteObject();
             data = new Data();
             player = data.PlayerBall;
+            _bonuses = FindObjectsOfType<InteractiveObject>();
             cameraController = new CameraController(player.transform, data.MainCamera.transform);
+            inputController = new InputController(player, _bonuses);
+            miniMapController = new MiniMapController(player.transform, data.MiniMapCamera.transform);
             _interactiveObject.AddExecuteObject(cameraController);
-            _interactiveObject.AddExecuteObject(player);
+            _interactiveObject.AddExecuteObject(inputController);
             _bonusDisplay = new BonusDisplay(data.Bonus);
             _gameOverDisplay = new GameOverDisplay(data.EndGame);
 
@@ -58,6 +64,11 @@ namespace RollABall
                 }
                 interactiveObject.Execute();
             }
+        }
+
+        private void LateUpdate()
+        {
+            miniMapController.LateExecute();
         }
 
         public void Dispose()

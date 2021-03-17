@@ -5,6 +5,7 @@ namespace RollABall
     public sealed class Data 
     {
         private PlayerBall _playerBall;
+        private Camera _miniMapCamera; 
         private Camera _mainCamera; 
         private GameObject _bonus;
         private GameObject _endGame;
@@ -68,6 +69,20 @@ namespace RollABall
             get
             {
                 return Camera.main;
+            }
+        }
+
+        public Camera MiniMapCamera
+        {
+            get
+            {
+                if (_miniMapCamera == null)
+                {
+                    var gameObject = Resources.Load<Camera>("Map/MiniMap");
+                    _miniMapCamera = Object.Instantiate(gameObject);
+
+                }
+                return _miniMapCamera;
             }
         }
     }
