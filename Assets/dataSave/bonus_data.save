@@ -1,0 +1,56 @@
+<Bonuses>
+  <Name value="BadBonus (1)">
+    <PosX PosX="0,71" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="13,38" />
+    <IsEnable IsEnable="True" />
+  </Name>
+  <Name value="SpeedBonus">
+    <PosX PosX="-10,32" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="-5,1" />
+    <IsEnable IsEnable="True" />
+  </Name>
+  <Name value="BadBonus">
+    <PosX PosX="2,95" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="-3,1" />
+    <IsEnable IsEnable="True" />
+  </Name>
+  <Name value="GoodBonus (1)">
+    <PosX PosX="1,15" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="-12,76" />
+    <IsEnable IsEnable="True" />
+  </Name>
+  <Name value="GoodBonus (4)">
+    <PosX PosX="12,76" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="-2,45" />
+    <IsEnable IsEnable="True" />
+  </Name>
+  <Name value="SpeedBonus (1)">
+    <PosX PosX="8,14" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="-9,42" />
+    <IsEnable IsEnable="True" />
+  </Name>
+  <Name value="GoodBonus">
+    <PosX PosX="-5,48" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="-12,76" />
+    <IsEnable IsEnable="True" />
+  </Name>
+  <Name value="GoodBonus (3)">
+    <PosX PosX="13" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="3,4" />
+    <IsEnable IsEnable="True" />
+  </Name>
+  <Name value="GoodBonus (2)">
+    <PosX PosX="-7,52" />
+    <PosY PosY="0,77" />
+    <PosZ PosZ="7,44" />
+    <IsEnable IsEnable="True" />
+  </Name>
+</Bonuses>
